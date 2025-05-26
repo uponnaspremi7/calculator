@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333; /* Darker background for context, calculator itself is black */
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.calculator {
+    background-color: #000000;
+    border-radius: 30px; /* More pronounced rounding like iOS */
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 320px; /* Approximate width */
+}
+
+.display {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: right;
+    padding: 30px 20px; /* Increased padding */
+    font-size: 3.5em;   /* Larger font size */
+    min-height: 1.5em; /* Ensure space even for 0 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 15px; /* Space between display and buttons */
+}
+
+#display-value {
+    display: inline-block; /* Helps with potential vertical alignment issues */
+}
+
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px; /* Gap between buttons */
+}
+
+.btn {
+    background-color: #333333; /* Dark gray for numbers */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%; /* Circular buttons */
+    font-size: 1.8em;   /* Adjusted font size for buttons */
+    padding: 0; /* Remove padding, use width/height for circle */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1; /* Make buttons circular */
+    height: auto; /* Let width drive the height via aspect-ratio */
+}
+
+.btn:active {
+    opacity: 0.7;
+}
+
+.btn.function {
+    background-color: #a5a5a5; /* Light gray */
+    color: #000000;
+}
+
+.btn.operator {
+    background-color: #ff9f0a; /* Orange */
+    color: #ffffff;
+    font-size: 2.2em; /* Operators are often larger */
+}
+
+/* Specific button adjustments if needed, e.g. for '0' if it were wider */
+/* #btn-zero {
+    grid-column: span 2;
+    border-radius: 40px;
+    justify-content: flex-start;
+    padding-left: 30px;
+} */
+
+#extra-btn { /* Style for the placeholder button */
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 1.5em; /* Placeholder '?' or icon font would go here */
+}
