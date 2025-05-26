@@ -3,84 +3,93 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #333; /* Darker background for context, calculator itself is black */
+    background-color: #333;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .calculator {
-    background-color: #000000;
-    border-radius: 30px; /* More pronounced rounding like iOS */
+    background-color: #000;
+    border-radius: 30px;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 320px; /* Approximate width */
+    width: 360px;
 }
 
 .display {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #000;
+    color: #fff;
     text-align: right;
-    padding: 30px 20px; /* Increased padding */
-    font-size: 3.5em;   /* Larger font size */
-    min-height: 1.5em; /* Ensure space even for 0 */
+    padding: 30px 20px;
+    font-size: 2.8em;
+    min-height: 1.5em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-bottom: 15px; /* Space between display and buttons */
+    margin-bottom: 15px;
 }
 
 #display-value {
-    display: inline-block; /* Helps with potential vertical alignment issues */
+    display: inline-block;
 }
-
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px; /* Gap between buttons */
+    gap: 10px;
 }
 
 .btn {
-    background-color: #333333; /* Dark gray for numbers */
-    color: #ffffff;
+    background-color: #333;
+    color: #fff;
     border: none;
-    border-radius: 50%; /* Circular buttons */
-    font-size: 1.8em;   /* Adjusted font size for buttons */
-    padding: 0; /* Remove padding, use width/height for circle */
+    border-radius: 50%;
+    font-size: 1.6em;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s; /* Added transform for active state */
     display: flex;
     justify-content: center;
     align-items: center;
-    aspect-ratio: 1 / 1; /* Make buttons circular */
-    height: auto; /* Let width drive the height via aspect-ratio */
+    aspect-ratio: 1 / 1;
+    height: auto;
 }
 
 .btn:active {
-    opacity: 0.7;
+    transform: scale(0.95); /* Slightly shrink button on click */
+    opacity: 0.9; /* Slight opacity change for feedback */
 }
 
 .btn.function {
-    background-color: #a5a5a5; /* Light gray */
-    color: #000000;
+    background-color: #a5a5a5;
+    color: #000;
+}
+
+.btn.function:hover { /* Added hover effect for function buttons */
+    background-color: #bbbbbb;
 }
 
 .btn.operator {
-    background-color: #ff9f0a; /* Orange */
-    color: #ffffff;
-    font-size: 2.2em; /* Operators are often larger */
+    background-color: #ff9f0a;
+    color: #fff;
+    font-size: 2em;
 }
 
-/* Specific button adjustments if needed, e.g. for '0' if it were wider */
-/* #btn-zero {
+.btn.operator:hover { /* Added hover effect for operator buttons */
+    background-color: #e08b00;
+}
+
+.btn.number:hover,
+#decimal:hover { /* Added hover effect for number and decimal buttons */
+    background-color: #555;
+}
+
+
+#btn-zero {
     grid-column: span 2;
     border-radius: 40px;
     justify-content: flex-start;
     padding-left: 30px;
-} */
-
-#extra-btn { /* Style for the placeholder button */
-    background-color: #333333;
-    color: #ffffff;
-    font-size: 1.5em; /* Placeholder '?' or icon font would go here */
+    /* Adjust aspect-ratio to reflect it spanning two columns */
+    /* This makes the button maintain its elongated shape */
+    aspect-ratio: 2 / 1;
 }
